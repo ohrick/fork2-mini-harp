@@ -6,8 +6,10 @@ var parsedArgv = require("minimist")(process.argv.slice(2));
 
 var port = parsedArgv.port||4000;
 
-var app = miniHarp();
+var root = parsedArgv._||process.cwd(); // current directory
 
-app.listen(port);
+var app = miniHarp(root);
+
+app.listen(4000);
 
 console.log("Starting mini-harp on http://localhost: " + port);
